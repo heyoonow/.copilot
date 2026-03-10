@@ -1,5 +1,5 @@
 ---
-name: flutter-fastlane-first
+name: fastlane-first
 description: Fastlane 설치 후 Flutter 앱을 처음으로 App Store + Google Play에 배포하는 스킬. Fastfile 작성, 메타데이터 세팅, 스샷 준비, 빌드 & 업로드 전 과정을 다룬다. "첫배포", "처음 올리기", "스토어 등록" 등의 요청에 반드시 이 스킬을 사용할 것.
 ---
 
