@@ -6,6 +6,11 @@
         "type": "command",
         "bash": "/Users/heyoonow/.copilot/hooks/scripts/track-start.sh",
         "timeoutSec": 5
+      },
+      {
+        "type": "command",
+        "bash": "/Users/heyoonow/.copilot/hooks/scripts/heartbeat.sh",
+        "timeoutSec": 5
       }
     ],
     "agentStop": [
