@@ -41,18 +41,22 @@ else
   ELAPSED_STR="${ELAPSED_SEC}초"
 fi
 
+# 프로젝트 이름 추출 (cwd의 마지막 폴더명)
+CWD="$(echo "$INPUT" | jq -r '.cwd // "unknown"')"
+PROJECT_NAME="$(basename "$CWD")"
+
 # 프롬프트 요약 (너무 길면 자름)
-PROMPT_SUMMARY="${PROMPT:0:100}"
-if [ ${#PROMPT} -gt 100 ]; then
+PROMPT_SUMMARY="${PROMPT:0:150}"
+if [ ${#PROMPT} -gt 150 ]; then
   PROMPT_SUMMARY="${PROMPT_SUMMARY}..."
 fi
 
 # 텔레그램 메시지 전송
 MESSAGE="✅ *Copilot 작업 완료*
 
+🗂 프로젝트: *${PROJECT_NAME}*
 ⏱ 소요 시간: *${ELAPSED_STR}*
-📝 작업: ${PROMPT_SUMMARY}
-📁 경로: $(echo "$INPUT" | jq -r '.cwd // "unknown"')"
+📝 작업 내용: ${PROMPT_SUMMARY}"
 
 curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
   -H "Content-Type: application/json" \
