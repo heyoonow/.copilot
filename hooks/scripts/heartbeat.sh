@@ -35,7 +35,7 @@ fi
 
 🗂 프로젝트: *${PROJECT_NAME}*
 🕐 경과 시간: *${ELAPSED_MIN}분째 작업 중...*
-📝 작업 내용: ${PROMPT_SHORT}"
+📋 작업 지시: ${PROMPT_SHORT}"
 
     curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
       -H "Content-Type: application/json" \

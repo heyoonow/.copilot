@@ -51,11 +51,31 @@ if [ ${#PROMPT} -gt 150 ]; then
   PROMPT_SUMMARY="${PROMPT_SUMMARY}..."
 fi
 
+# 에러 감지
+EXIT_CODE="$(echo "$INPUT" | jq -r '.exitCode // empty')"
+STOP_REASON="$(echo "$INPUT" | jq -r '.reason // empty')"
+ERROR_MSG="$(echo "$INPUT" | jq -r '.error // empty')"
+
+if [ -n "$ERROR_MSG" ] && [ "$ERROR_MSG" != "null" ]; then
+  ISSUE_LINE="🚨 이슈: ${ERROR_MSG:0:100}"
+elif [ -n "$STOP_REASON" ] && [ "$STOP_REASON" != "null" ] && [ "$STOP_REASON" != "success" ]; then
+  ISSUE_LINE="⚠️ 이슈: ${STOP_REASON}"
+elif [ -n "$EXIT_CODE" ] && [ "$EXIT_CODE" != "0" ] && [ "$EXIT_CODE" != "null" ]; then
+  ISSUE_LINE="⚠️ 이슈: 비정상 종료 (exit ${EXIT_CODE})"
+else
+  ISSUE_LINE=""
+fi
+
 MESSAGE="✅ *작업 완료됐어요 대표님!*
 
 🗂 프로젝트: *${PROJECT_NAME}*
 ⏱ 소요 시간: *${ELAPSED_STR}*
-📝 작업 내용: ${PROMPT_SUMMARY}"
+📋 작업 지시: ${PROMPT_SUMMARY}"
+
+if [ -n "$ISSUE_LINE" ]; then
+  MESSAGE="${MESSAGE}
+${ISSUE_LINE}"
+fi
 
 curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
   -H "Content-Type: application/json" \
