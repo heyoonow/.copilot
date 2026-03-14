@@ -6,7 +6,7 @@ THRESHOLD_SEC="${COPILOT_NOTIFY_THRESHOLD_SEC:-30}"
 INPUT="$(cat)"
 exec < /dev/null  # ← 핵심! stdin 즉시 해제
 
-NOW_MS="$(echo "$INPUT" | jq -r '.timestamp // empty')"
+NOW_MS="$(date +%s)"  # macOS 호환 (초 단위)
 
 PID_FILE="/tmp/copilot_heartbeat_pid"
 if [ -f "$PID_FILE" ]; then
@@ -24,11 +24,13 @@ START_LINE="$(cat "$START_FILE")"
 START_MS="$(echo "$START_LINE" | cut -d'|' -f1)"
 PROMPT="$(echo "$START_LINE" | cut -d'|' -f2-)"
 
-if [ -z "$START_MS" ] || [ -z "$NOW_MS" ]; then
+if [ -z "$START_MS" ]; then
   exit 0
 fi
 
-ELAPSED_SEC=$(( (NOW_MS - START_MS) / 1000 ))
+ELAPSED_SEC=$(( NOW_MS - START_MS ))
+ELAPSED_SEC=${ELAPSED_SEC:-0}
+if [ "$ELAPSED_SEC" -lt 0 ]; then ELAPSED_SEC=0; fi
 rm -f "$START_FILE"
 
 CWD="$(echo "$INPUT" | jq -r '.cwd // "unknown"')"
