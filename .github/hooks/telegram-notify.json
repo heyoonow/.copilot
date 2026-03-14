@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "hooks": {
+    "userPromptSubmitted": [
+      {
+        "type": "command",
+        "bash": "/Users/heyoonow/.copilot/hooks/scripts/track-start.sh",
+        "timeoutSec": 5
+      }
+    ],
+    "agentStop": [
+      {
+        "type": "command",
+        "bash": "/Users/heyoonow/.copilot/hooks/scripts/telegram-notify.sh",
+        "timeoutSec": 10
+      }
+    ]
+  }
+}

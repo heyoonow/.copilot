@@ -11,3 +11,7 @@
 !skills/**
 !copilot-instructions.md
 !mcp-config.json.example
+!hooks/
+!hooks/**
+!.github/
+!.github/**
