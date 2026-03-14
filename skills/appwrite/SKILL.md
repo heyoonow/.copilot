@@ -8,10 +8,17 @@ description: "HEYNOW 생태계 통합 인프라 및 데이터 설계 스킬. Cor
 > **핵심 원칙:** "Centralized Identity, Distributed Data"  
 > **추측 금지 — MCP 조회 후 작업 시작.**
 
-## 📁 DB별 상세 스키마
-- **Core DB** → `core_db.md` 참고
-- **App_FlashReact DB** → `app_flashreact_db.md` 참고
-- 신규 DB 추가 시 → `[db_id]_db.md` 파일 생성
+## 📁 DB별 상세 스키마 — 작업 전 반드시 해당 파일을 읽어라
+
+> ⚠️ 아래 파일들은 작업 대상 DB가 결정되는 즉시 **view 툴로 직접 열어서 읽어야 한다.**  
+> 읽지 않고 작업하면 스키마 불일치, 필드 누락 등의 오류가 발생한다.
+
+| 작업 대상 DB | 반드시 읽을 파일 |
+|---|---|
+| `core` (Core DB) | `/Users/heyoonow/.copilot/skills/appwrite/core_db.md` |
+| `App_FlashReact` | `/Users/heyoonow/.copilot/skills/appwrite/app_flashreact_db.md` |
+
+- 신규 DB 추가 시 → `[db_id]_db.md` 파일 생성 후 이 표에 추가
 
 ---
 
