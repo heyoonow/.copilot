@@ -8,7 +8,7 @@ INTERVAL_SEC=300  # 5분
 INPUT="$(cat)"
 CWD="$(echo "$INPUT" | jq -r '.cwd // "unknown"')"
 PROJECT_NAME="$(basename "$CWD")"
-PROMPT="$(echo "$INPUT" | jq -r '.prompt // empty')"
+PROMPT="$(echo "$INPUT" | jq -r '.prompt // empty' | head -1)"
 PROMPT_SHORT="${PROMPT:0:80}"
 if [ ${#PROMPT} -gt 80 ]; then
   PROMPT_SHORT="${PROMPT_SHORT}..."

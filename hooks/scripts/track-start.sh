@@ -3,7 +3,7 @@
 
 INPUT="$(cat)"
 TIMESTAMP_MS="$(echo "$INPUT" | jq -r '.timestamp // empty')"
-PROMPT="$(echo "$INPUT" | jq -r '.prompt // empty')"
+PROMPT="$(echo "$INPUT" | jq -r '.prompt // empty' | head -1)"
 
 # 세션별 임시 파일에 시작 시간 저장
 TMPFILE="/tmp/copilot_task_start_$$"
