@@ -22,6 +22,22 @@ description: "HEYNOW 생태계 통합 인프라 및 데이터 설계 스킬. Cor
 
 ---
 
+> # ‼️‼️‼️ 문서 갱신 규칙 — 절대 빠뜨리지 말 것 ‼️‼️‼️
+>
+> **DB/컬렉션/필드/인덱스를 추가·수정·삭제한 경우, 작업 완료 후 반드시 해당 스키마 문서를 즉시 업데이트한다.**
+>
+> | 변경 작업 | 업데이트할 파일 |
+> |---|---|
+> | Core DB 변경 | `core_db.md` |
+> | App_FlashReact 변경 | `app_flashreact_db.md` |
+> | 신규 DB 추가 | `[db_id]_db.md` 생성 + SKILL.md 표에 추가 |
+> | AppLaunchLogger 변경 | `app_launch_logger.md` + `app_library/docs/APP_LAUNCH_LOGGER_GUIDE.md` |
+> | 앱 규칙/공통 규칙 변경 | `SKILL.md` |
+>
+> **문서 미갱신 = 다음 작업자(또는 나)가 잘못된 정보로 작업하게 됨. 절대 건너뛰지 않는다.**
+
+---
+
 ## 🛠️ MCP 환경
 
 - **서버:** `appwrite`
