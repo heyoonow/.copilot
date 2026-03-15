@@ -22,6 +22,7 @@
 |---|---|---|
 | `reactflash` | ReactFlash | Flutter |
 | `stopwatch` | 스톱워치 | Flutter |
+| `moving` | Moving | Flutter |
 
 > ⚠️ `app_id` 필드 없음. `$id`가 앱 식별자. 신규 앱은 반드시 여기 먼저 등록.
 

@@ -17,6 +17,7 @@ description: "HEYNOW 생태계 통합 인프라 및 데이터 설계 스킬. Cor
 |---|---|
 | `core` (Core DB) | `/Users/heyoonow/.copilot/skills/appwrite/core_db.md` |
 | `App_FlashReact` | `/Users/heyoonow/.copilot/skills/appwrite/app_flashreact_db.md` |
+| `App_Moving` | `/Users/heyoonow/.copilot/skills/appwrite/app_moving_db.md` |
 
 - 신규 DB 추가 시 → `[db_id]_db.md` 파일 생성 후 이 표에 추가
 
@@ -30,6 +31,7 @@ description: "HEYNOW 생태계 통합 인프라 및 데이터 설계 스킬. Cor
 > |---|---|
 > | Core DB 변경 | `core_db.md` |
 > | App_FlashReact 변경 | `app_flashreact_db.md` |
+> | App_Moving 변경 | `app_moving_db.md` |
 > | 신규 DB 추가 | `[db_id]_db.md` 생성 + SKILL.md 표에 추가 |
 > | AppLaunchLogger 변경 | `app_launch_logger.md` + `app_library/docs/APP_LAUNCH_LOGGER_GUIDE.md` |
 > | 앱 규칙/공통 규칙 변경 | `SKILL.md` |
